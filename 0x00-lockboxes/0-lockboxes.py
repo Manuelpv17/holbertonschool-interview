@@ -15,7 +15,6 @@ def canUnlockAll(boxes):
                 keyArray.append(elem)
         checkBox[keyArray[i]] = 1
         i += 1
-        print(checkBox)
 
     if 0 in checkBox:
         return False
