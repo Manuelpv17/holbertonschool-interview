@@ -6,15 +6,17 @@ def canUnlockAll(boxes):
     elif len(boxes) == 0:
         return True
 
+    checkBox = [0] * len(boxes)
     keyArray = [0]
     i = 0
     while(len(keyArray) > i):
-        for elem in boxes[keyArray[i]]:
-            if elem not in keyArray:
+        if checkBox[keyArray[i]] == 0:
+            for elem in boxes[keyArray[i]]:
                 keyArray.append(elem)
+        checkBox[keyArray[i]] = 1
         i += 1
 
-    if i == len(boxes):
-        return True
+    if 0 in checkBox:
+        return False
 
-    return False
+    return True
