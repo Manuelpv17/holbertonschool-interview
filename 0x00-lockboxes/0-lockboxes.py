@@ -15,7 +15,6 @@ def canUnlockAll(boxes):
         for elem in boxes[keyArray[i]]:
             if elem not in keyArray and elem < box_len:
                 keyArray.append(elem)
-        print(keyArray)
         i += 1
 
     if i == len(boxes):
