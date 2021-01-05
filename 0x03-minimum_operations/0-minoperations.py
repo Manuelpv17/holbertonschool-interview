@@ -21,9 +21,7 @@ def minOperations(n):
             if n % div == 0:
                 if div != last_div:
                     count += 1
-                    print("copy")
                 count += 1
-                print("paste", div)
                 n = n - div
                 last_div = div
                 break
