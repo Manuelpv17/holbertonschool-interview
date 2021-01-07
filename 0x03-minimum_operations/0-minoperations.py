@@ -16,10 +16,10 @@ def minOperations(n):
 
     count = 0
     last_div = 0
-    max_div = n
+    max_div = n//2
     while (n != 1):
         for div in range(max_div, 0, -1):
-            if n % div == 0:
+            if n % div == 0 and max_div >= div:
                 if div != last_div:
                     count += 1
                 count += 1
