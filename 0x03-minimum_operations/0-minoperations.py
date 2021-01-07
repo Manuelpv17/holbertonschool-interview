@@ -27,5 +27,4 @@ def minOperations(n):
                 last_div = div
                 max_div = div
                 break
-
     return count
