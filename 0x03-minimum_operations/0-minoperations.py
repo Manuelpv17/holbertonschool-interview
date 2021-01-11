@@ -11,7 +11,7 @@ characters in the file.
 
 def minOperations(n):
     """ Min Operations"""
-    if n <= 0:
+    if n <= 1:
         return 0
 
     count = 0
