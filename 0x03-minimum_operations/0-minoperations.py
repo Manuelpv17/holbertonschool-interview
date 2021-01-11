@@ -16,9 +16,9 @@ def minOperations(n):
 
     count = 0
     last_div = 0
-    max_div = n//2
+    max_div = n
     while (n != 1):
-        for div in range(max_div, 0, -1):
+        for div in range(n//2, 0, -1):
             if n % div == 0 and max_div >= div:
                 if div != last_div:
                     count += 1
@@ -28,3 +28,10 @@ def minOperations(n):
                 max_div = div
                 break
     return count
+
+
+"""
+
+12
+
+"""
