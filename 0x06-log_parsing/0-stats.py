@@ -27,8 +27,10 @@ line_num = 0
 
 try:
     for line in sys.stdin:
-        line_num += 1
         words = line.split()
+        if (len(words) < 2):
+            continue
+        line_num += 1
         total_size += int(words[-1])
         if words[-2] in codes_count:
             codes_count[words[-2]] += 1
