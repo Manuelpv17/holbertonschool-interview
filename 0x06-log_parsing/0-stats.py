@@ -33,8 +33,10 @@ try:
         if words[-2] in codes_count:
             codes_count[words[-2]] += 1
 
-        if (line_num % 10 == 0 and line_num != 0):
+        if (line_num % 10 == 0):
             print_stats(total_size, codes_count)
 except KeyboardInterrupt:
     print_stats(total_size, codes_count)
     raise
+
+print_stats(total_size, codes_count)
