@@ -8,9 +8,7 @@ def validUTF8(data):
     """ UTF-8 Validation """
     flag_num = 0
     for elem in data:
-        if elem > 255:
-            return False
-        b_elem = '{0:08b}'.format(elem)
+        b_elem = '{0:08b}'.format(elem)[-8:]
         if flag_num == 0:
             len_num = 0
             for digit in b_elem:
