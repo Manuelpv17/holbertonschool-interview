@@ -9,7 +9,7 @@ def validUTF8(data):
     flag_num = 0
 
     if len(data) == 0:
-        return False
+        return True
 
     for elem in data:
         b_elem = '{0:08b}'.format(elem)[-8:]
