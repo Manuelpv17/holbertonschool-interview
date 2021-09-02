@@ -8,14 +8,14 @@
  */
 void print_array(int *array, int min, int max)
 {
-    int i;
+	int i;
 
-    printf("Searching in array: ");
-    for (i = min; i < max; i++)
-        printf("%d, ", array[i]);
-    printf("%d", array[i]);
+	printf("Searching in array: ");
+	for (i = min; i < max; i++)
+		printf("%d, ", array[i]);
+	printf("%d", array[i]);
 
-    printf("\n");
+	printf("\n");
 }
 
 /**
@@ -30,25 +30,25 @@ void print_array(int *array, int min, int max)
  */
 int aux_recursion(int *array, int min, int max, int value)
 {
-    if (max >= min)
-    {
-        int mid = min + (max - min) / 2;
+	if (max >= min)
+	{
+		int mid = min + (max - min) / 2;
 
-        print_array(array, min, max);
+		print_array(array, min, max);
 
-        if (array[mid] == value)
-        {
-            if (array[mid - 1] == value)
-                return (aux_recursion(array, min, mid, value));
+		if (array[mid] == value)
+		{
+			if (array[mid - 1] == value)
+				return (aux_recursion(array, min, mid, value));
 
-            return (mid);
-        }
-        if (array[mid] >= value)
-            return (aux_recursion(array, min, mid, value));
-        return (aux_recursion(array, mid + 1, max, value));
-    }
+			return (mid);
+		}
+		if (array[mid] >= value)
+			return (aux_recursion(array, min, mid, value));
+		return (aux_recursion(array, mid + 1, max, value));
+	}
 
-    return (-1);
+	return (-1);
 }
 
 /**
@@ -64,8 +64,8 @@ int aux_recursion(int *array, int min, int max, int value)
  */
 int advanced_binary(int *array, size_t size, int value)
 {
-    if (array == NULL)
-        return (-1);
+	if (array == NULL)
+		return (-1);
 
-    return (aux_recursion(array, 0, size - 1, value));
+	return (aux_recursion(array, 0, size - 1, value));
 }
