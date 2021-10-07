@@ -14,7 +14,6 @@
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
 	skiplist_t *fast_node, *previous = list;
-	;
 
 	if (!list)
 		return (NULL);
