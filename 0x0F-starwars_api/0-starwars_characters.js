@@ -1,33 +1,31 @@
 #!/usr/bin/node
 
-const request = require('request');
-const urlMovie = 'https://swapi-api.hbtn.io/api/films/' + process.argv[2];
+const request = require("request");
+const urlMovie = "https://swapi-api.hbtn.io/api/films/" + process.argv[2];
 
-request(urlMovie, async function (error, response, body) {
-  const arr = [];
+request(urlMovie, function (error, response, body) {
+  if (error == null) {
+    const characters = JSON.parse(body).characters;
 
-  if (error) {
-    console.log(error);
-  } else {
-    const film = JSON.parse(body);
-    for (let i = 0; i < film.characters.length; i++) {
-      arr.push(myCharacter(film.characters[i]));
+    if (characters && characters.length > 0) {
+      myRequest(0, characters[0], characters, characters.length);
     }
+  } else {
+    console.log(error);
   }
-
-  let actors = await Promise.all(arr);
-
-  actors = actors.map((actor) => JSON.parse(actor).name);
-  actors.forEach((actor) => console.log(actor));
 });
 
-function myCharacter (thisCharacter) {
-  return new Promise((resolve, reject) => {
-    request(thisCharacter, function (error, response, body) {
-      if (error) {
-        reject(error);
-      }
-      resolve(body);
-    });
+function myRequest(idx, url, characters, limit) {
+  if (idx === limit) {
+    return;
+  }
+  request(url, function (error, response, body) {
+    if (!error) {
+      console.log(JSON.parse(body).name);
+
+      myRequest(++idx, characters[idx], characters, limit);
+    } else {
+      console.error(error);
+    }
   });
 }
