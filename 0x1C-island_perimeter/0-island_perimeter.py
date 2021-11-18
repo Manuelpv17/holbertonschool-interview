@@ -2,6 +2,8 @@
 
 
 def island_perimeter(grid):
+    """ 0x1C. Island Perimeter """
+
     perimeter = 0
     for row_index, row in enumerate(grid):
         for col_index, elem in enumerate(row):
