@@ -8,6 +8,10 @@ def makeChange(coins, total):
     count = 0
     index = 0
     length = len(coins)
+
+    if length == 0 and total != 0:
+        return -1
+
     coins.sort(reverse=True)
 
     while total > 0:
